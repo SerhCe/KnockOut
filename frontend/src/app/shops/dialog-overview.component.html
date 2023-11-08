@@ -1,0 +1,24 @@
+<h1>Bitte wählen Sie Ihre Konfiguration aus:</h1>
+<form (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Konfigurationen</mat-label>
+    <mat-select>
+      <mat-option
+        *ngFor="let local of local_config"
+        [value]="local"
+        (click)="dropdownValues(local)"
+      >
+        {{ local.local_config_name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button
+    type="submit"
+    class="btn btn-primary btn-block"
+    [disabled]="!local_configForm.valid"
+    mat-button
+    [mat-dialog-close]="data.localIsSet"
+  >
+    Bestätigen
+  </button>
+</form>

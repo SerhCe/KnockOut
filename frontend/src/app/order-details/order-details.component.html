@@ -1,0 +1,45 @@
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">OrderItem-ID</th>
+        <th scope="col">Order-ID</th>
+        <th scope="col">Article Number</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Measure Unit</th>
+        <th scope="col">Ext Article Number</th>
+        <th scope="col">Article Description</th>
+        <th scope="col">Unit Price</th>
+        <th scope="col">Total Price</th>
+        <th scope="col">Delivery Date</th>
+        <th scope="col">Created Date</th>
+        <th scope="col">Last_modified_date</th>
+        <th scope="col">Tax</th>
+        <th scope="col">Line Item_ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let orders of orderItem">
+        <tr *ngIf="orders.orders_id == ordersIdUrl">
+          <td>{{ orders.order_item_id }}</td>
+          <td>{{ orders.orders_id }}</td>
+          <td>{{ orders.article_number }}</td>
+          <td>{{ orders.quantity }}</td>
+          <td>{{ orders.measure_unit }}</td>
+          <td>{{ orders.ext_article_number }}</td>
+          <td>{{ orders.article_description }}</td>
+          <td>{{ orders.unit_price }}</td>
+          <td>{{ orders.total_price }}</td>
+          <td>{{ orders.delivery_date | date: "dd.MM.yyyy HH:mm" }}</td>
+          <td>{{ orders.created_date | date: "dd.MM.yyyy HH:mm" }}</td>
+          <td>{{ orders.last_modified_date | date: "dd.MM.yyyy HH:mm" }}</td>
+          <td>{{ orders.tax }}</td>
+          <td>{{ orders.line_item_id }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+<button class="btn btn-primary rounded-pill" routerLink="/orders">
+  <img src="/assets/img/icons/angle-left-solid.svg" height="16px" /> Zurück
+</button>

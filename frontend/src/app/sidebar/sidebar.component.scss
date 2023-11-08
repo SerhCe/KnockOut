@@ -1,0 +1,71 @@
+body {
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: white;
+  color: black;
+}
+.right {
+  float: right;
+}
+.heightAdjustment {
+  height: 40vh;
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin 0.25s ease-out;
+  -moz-transition: margin 0.25s ease-out;
+  -o-transition: margin 0.25s ease-out;
+  transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+.icons {
+  width: 28px;
+  height: 28px;
+}
+
+.sidebardesign {
+  height: 45px;
+  font-size: 15px;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+  .show {
+    margin-left: 0 !important;
+  }
+  .hide {
+    margin-left: -12rem !important;
+  }
+}
+@media (max-width: 767px) {
+  .show {
+    margin-left: -12rem !important;
+  }
+  .hide {
+    margin-left: -0 !important;
+  }
+}

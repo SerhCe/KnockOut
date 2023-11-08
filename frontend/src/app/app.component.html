@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<div class="flex-container" *ngIf="getSessionUserID(); else elseBlock">
+  <div class="navigation">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="main_component"><router-outlet></router-outlet></div>
+</div>
+<ng-template #elseBlock
+  >Bitte übergeben Sie eine User ID zum benutzen der Schnittstelle.</ng-template
+>

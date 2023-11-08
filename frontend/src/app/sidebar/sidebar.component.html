@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div
+      class="bg-light border-right"
+      id="sidebar-wrapper"
+      [ngClass]="status ? 'hide' : 'show'"
+    >
+      <div class="sidebar-heading bg-light">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/0/0c/RENA-Logo.svg"
+          height="50px"
+        />
+      </div>
+      <div class="list-group list-group-flush heightAdjustment">
+        <div
+          class="list-group-item list-group-item-action sidebardesign"
+          routerLink="/shops"
+          routerLinkActive="bg-primary"
+        >
+          <img src="/assets/img/icons/shop-solid.svg" class="icons right" />
+          Shops
+        </div>
+        <div
+          class="list-group-item list-group-item-action sidebardesign"
+          routerLink="/orders"
+          routerLinkActive="bg-primary"
+        >
+          <img src="/assets/img/icons/dolly-solid.svg" class="icons right" />
+          Orders
+        </div>
+        <div
+          class="list-group-item list-group-item-action sidebardesign"
+          routerLink="/locale-config"
+          routerLinkActive="bg-primary"
+        >
+          <img
+            src="/assets/img/icons/map-location-dot-solid.svg"
+            class="icons right"
+          />
+          Local Config
+        </div>
+        <div
+          class="list-group-item list-group-item-action sidebardesign"
+          routerLink="/admin"
+          routerLinkActive="bg-primary"
+        >
+          <img src="/assets/img/icons/user-pen-solid.svg" class="icons right" />
+          Admin
+        </div>
+      </div>
+      <button
+        class="btn btn-light right align-middle"
+        (click)="clickEvent()"
+        *ngIf="!sidebarButton"
+      >
+        <img
+          src="/assets/img/icons/angles-left-solid.svg"
+          class="icons right"
+        />
+      </button>
+      <button
+        class="btn btn-light right align-middle"
+        (click)="clickEvent()"
+        *ngIf="sidebarButton"
+      >
+        <img
+          src="/assets/img/icons/angles-right-solid.svg"
+          class="icons right"
+        />
+      </button>
+    </div>
+  </div>
+</html>

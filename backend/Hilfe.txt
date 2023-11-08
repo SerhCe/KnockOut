@@ -1,0 +1,9 @@
+  "Adminer": {
+    "server": "knockout",
+    "user": "root",
+    "password": "123456"
+  }
+
+  Docker-Befehl: 
+  
+        - docker-compose up -d

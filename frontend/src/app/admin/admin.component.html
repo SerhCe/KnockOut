@@ -1,0 +1,452 @@
+<div class="row">
+  <div class="col-md-8 mb-5">
+    <div class="card mb-5">
+      <div class="card-body">
+        <mat-tab-group (selectedTabChange)="resetForm()">
+          <mat-tab label="Shops hinzufügen">
+            <form
+              class="overflow-hidden"
+              (ngSubmit)="onSubmit()"
+              [formGroup]="configForm"
+            >
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="supplier_name_create"
+                      class="form-control"
+                      formControlName="supplier_name"
+                    />
+                    <label class="form-label" for="supplier_name_create">
+                      Lieferantenname
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="shop_url_create"
+                      class="form-control"
+                      formControlName="shop_url"
+                    />
+                    <label class="form-label" for="shop_url_create">
+                      Shop-URL
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="username_create"
+                      class="form-control"
+                      formControlName="shop_user"
+                    />
+                    <label class="form-label" for="username_create">
+                      Username
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="password"
+                      id="password_create"
+                      class="form-control"
+                      formControlName="shop_password"
+                    />
+                    <label class="form-label" for="password_create">
+                      Passwort
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="return_adress_create"
+                      class="form-control"
+                      formControlName="shop_return_address"
+                    />
+                    <label class="form-label" for="return_adress_create">
+                      Rücklieferadresse
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="number"
+                      id="supplier_id_create"
+                      class="form-control"
+                      formControlName="supply_id"
+                    />
+                    <label class="form-label" for="supplier_id_create">
+                      Lieferantennummer
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <mat-radio-group
+                    aria-label="Select an option"
+                    formControlName="status"
+                  >
+                    <mat-radio-button value="active">aktiv</mat-radio-button>
+                    <mat-radio-button value="inactive"
+                      >inaktiv</mat-radio-button
+                    >
+                  </mat-radio-group>
+                </div>
+                <div class="col">
+                  <button
+                    type="submit"
+                    class="btn btn-primary btn-block"
+                    [disabled]="!configForm.valid"
+                  >
+                    Speichern
+                  </button>
+                </div>
+              </div>
+            </form>
+          </mat-tab>
+          <mat-tab label="Shops bearbeiten">
+            <mat-form-field class="dropdown">
+              <mat-label>Shops</mat-label>
+              <mat-select #matEdit>
+                <mat-option
+                  *ngFor="let shop of configuration"
+                  [value]="shop"
+                  (click)="dropdownValues(shop)"
+                >
+                  {{ shop.supplier_name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <form
+              class="overflow-hidden"
+              [formGroup]="configForm"
+              (ngSubmit)="onEdit()"
+            >
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="supplier_name_alter"
+                      class="form-control"
+                      formControlName="supplier_name"
+                      [value]="configForm.controls['supplier_name']"
+                    />
+                    <label class="form-label" for="supplier_name_alter">
+                      Lieferantenname
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="shop_url_alter"
+                      class="form-control"
+                      formControlName="shop_url"
+                      [value]="configForm.controls['shop_url']"
+                    />
+                    <label class="form-label" for="shop_url_alter">
+                      Shop-URL
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="username_alter"
+                      class="form-control"
+                      formControlName="shop_user"
+                      [value]="configForm.controls['shop_user']"
+                    />
+                    <label class="form-label" for="username_alter">
+                      Username
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="password"
+                      id="password_alter"
+                      class="form-control"
+                      formControlName="shop_password"
+                      [value]="configForm.controls['shop_password']"
+                    />
+                    <label class="form-label" for="password_alter">
+                      Passwort
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="return_adress_alter"
+                      class="form-control"
+                      formControlName="shop_return_address"
+                      [value]="configForm.controls['shop_return_address']"
+                    />
+                    <label class="form-label" for="return_adress_alter">
+                      Rücklieferadresse
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="number"
+                      id="supplier_id_alter"
+                      class="form-control"
+                      formControlName="supply_id"
+                      [value]="configForm.controls['supply_id']"
+                    />
+                    <label class="form-label" for="supplier_id_alter">
+                      Lieferantennummer
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="created_date_alter"
+                      class="form-control"
+                      formControlName="created_date"
+                      [value]="
+                        configForm.get('created_date')?.value
+                          | date: 'dd.MM.yyyy HH:mm'
+                      "
+                      readonly
+                    />
+                    <label class="form-label" for="created_date_alter">
+                      Erstellungsdatum
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="last_modified_date_alter"
+                      class="form-control"
+                      formControlName="last_modified_date"
+                      [value]="
+                        configForm.get('last_modified_date')?.value
+                          | date: 'dd.MM.yyyy HH:mm'
+                      "
+                      readonly
+                    />
+                    <label class="form-label" for="last_modified_date_alter">
+                      Letztes Bearbeitungsdatum
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <mat-radio-group
+                    aria-label="Select an option"
+                    formControlName="status"
+                  >
+                    <mat-radio-button value="active">aktiv</mat-radio-button>
+                    <mat-radio-button value="inactive"
+                      >inaktiv</mat-radio-button
+                    >
+                  </mat-radio-group>
+                </div>
+                <div class="col">
+                  <button type="submit" class="btn btn-primary btn-block">
+                    Speichern
+                  </button>
+                </div>
+              </div>
+            </form>
+          </mat-tab>
+          <mat-tab label="Shops löschen">
+            <mat-form-field class="dropdown">
+              <mat-label>Shops</mat-label>
+              <mat-select #matDelete>
+                <mat-option
+                  *ngFor="let shop of configuration"
+                  (click)="dropdownValues(shop)"
+                  [value]="shop.configuration_id"
+                >
+                  {{ shop.supplier_name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <form
+              class="overflow-hidden"
+              [formGroup]="configForm"
+              (ngSubmit)="onDelete()"
+            >
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="supplier_name_delete"
+                      class="form-control"
+                      formControlName="supplier_name"
+                      [value]="configForm.controls['supplier_name']"
+                      readonly
+                    />
+                    <label class="form-label" for="supplier_name_delete">
+                      Lieferantenname
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="shop_url_delete"
+                      class="form-control"
+                      formControlName="shop_url"
+                      [value]="configForm.controls['shop_url']"
+                      readonly
+                    />
+                    <label class="form-label" for="shop_url_delete">
+                      Shop-URL
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="username_delete"
+                      class="form-control"
+                      formControlName="shop_user"
+                      [value]="configForm.controls['shop_user']"
+                      readonly
+                    />
+                    <label class="form-label" for="username_delete">
+                      Username
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="password"
+                      id="password_delete"
+                      class="form-control"
+                      formControlName="shop_password"
+                      [value]="configForm.controls['shop_password']"
+                      readonly
+                    />
+                    <label class="form-label" for="password_delete">
+                      Passwort
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="return_adress_delete"
+                      class="form-control"
+                      formControlName="shop_return_address"
+                      [value]="configForm.controls['shop_return_address']"
+                      readonly
+                    />
+                    <label class="form-label" for="return_adress_delete">
+                      Rücklieferadresse
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="number"
+                      id="supplier_id_delete"
+                      class="form-control"
+                      formControlName="supply_id"
+                      [value]="configForm.controls['supply_id']"
+                      readonly
+                    />
+                    <label class="form-label" for="supplier_id_delete">
+                      Lieferantennummer
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="created_date_delete"
+                      class="form-control"
+                      formControlName="created_date"
+                      [value]="
+                        configForm.get('created_date')?.value
+                          | date: 'dd.MM.yyyy HH:mm'
+                      "
+                      readonly
+                    />
+                    <label class="form-label" for="created_date_delete">
+                      Erstellungsdatum
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="last_modified_date_delete"
+                      class="form-control"
+                      formControlName="last_modified_date"
+                      [value]="
+                        configForm.get('last_modified_date')?.value
+                          | date: 'dd.MM.yyyy HH:mm'
+                      "
+                      readonly
+                    />
+                    <label class="form-label" for="last_modified_date_delete">
+                      Letztes Bearbeitungsdatum
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col"></div>
+                <div class="col">
+                  <button type="submit" class="btn btn-primary btn-block">
+                    Löschen
+                  </button>
+                </div>
+              </div>
+            </form>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>

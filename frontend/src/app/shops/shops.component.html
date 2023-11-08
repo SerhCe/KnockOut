@@ -1,0 +1,26 @@
+<div class="flex-container">
+  <iframe
+    [src]="shop_url_iframe"
+    style="position: relative; height: 94vh; width: 100%"
+    *ngIf="showIFrame"
+  >
+  </iframe>
+  <ng-container *ngFor="let shop of configuration">
+    <div class="flex-child" *ngIf="shop.status == 'active'">
+      <button
+        class="btn btn-primary shop-button"
+        *ngIf="visibleButton"
+        (click)="
+          openDialog(
+            shop.shop_url,
+            shop.shop_user,
+            shop.shop_password,
+            shop.shop_return_address
+          )
+        "
+      >
+        {{ shop.supplier_name }}
+      </button>
+    </div>
+  </ng-container>
+</div>

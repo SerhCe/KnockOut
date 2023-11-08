@@ -1,0 +1,936 @@
+<div class="row">
+  <div class="col-md-8 mb-5">
+    <div class="card mb-5">
+      <div class="card-body">
+        <mat-tab-group (selectedTabChange)="resetForm()">
+          <mat-tab label="Konfiguration hinzufügen">
+            <form
+              class="overflow-hidden"
+              (ngSubmit)="onSubmit()"
+              [formGroup]="local_configForm"
+            >
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="local_config_name"
+                      class="form-control"
+                      formControlName="local_config_name"
+                    />
+                    <label class="form-label" for="local_config_name">
+                      Name der Konfiguration
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <h1>Kundenanschrift</h1>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="buyer_party_name_create"
+                      class="form-control"
+                      formControlName="buyer_party_name"
+                    />
+                    <label class="form-label" for="buyer_party_name_create">
+                      Name
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="address_1_create"
+                      class="form-control"
+                      formControlName="address_1"
+                    />
+                    <label class="form-label" for="address_1_create">
+                      Straße
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="number"
+                      id="zipcode_1_create"
+                      class="form-control"
+                      formControlName="zipcode_1"
+                    />
+                    <label class="form-label" for="zipcode_1_create">
+                      Postleitzahl
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="city_1_create"
+                      class="form-control"
+                      formControlName="city_1"
+                    />
+                    <label class="form-label" for="city_1_create">
+                      Stadt
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="country_1_create"
+                      class="form-control"
+                      formControlName="country_1"
+                    />
+                    <label class="form-label" for="country_1_create">
+                      Land
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="tel_number_1_create"
+                      class="form-control"
+                      formControlName="tel_number_1"
+                    />
+                    <label class="form-label" for="tel_number_1_create">
+                      Telefonnummer
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <div class="row mb-4">
+                <h1>Lieferantenanschrift</h1>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="supplier_party_name_create"
+                      class="form-control"
+                      formControlName="supplier_party_name"
+                    />
+                    <label class="form-label" for="supplier_party_name_create">
+                      Name
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="address_2_create"
+                      class="form-control"
+                      formControlName="address_2"
+                    />
+                    <label class="form-label" for="address_2_create">
+                      Straße
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="number"
+                      id="zipcode_2_create"
+                      class="form-control"
+                      formControlName="zipcode_2"
+                    />
+                    <label class="form-label" for="zipcode_2_create">
+                      Postleitzahl
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="city_2_create"
+                      class="form-control"
+                      formControlName="city_2"
+                    />
+                    <label class="form-label" for="city_2_create">
+                      Stadt
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="country_2_create"
+                      class="form-control"
+                      formControlName="country_2"
+                    />
+                    <label class="form-label" for="country_2_create">
+                      Land
+                    </label>
+                  </div>
+                </div>
+                <div class="col"></div>
+              </div>
+              <hr />
+              <div class="row mb-4">
+                <h1>Rechnungsanschrift</h1>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="invoice_party_name_create"
+                      class="form-control"
+                      formControlName="invoice_party_name"
+                    />
+                    <label class="form-label" for="invoice_party_name_create">
+                      Name
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="address_3_create"
+                      class="form-control"
+                      formControlName="address_3"
+                    />
+                    <label class="form-label" for="address_3_create">
+                      Straße
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="number"
+                      id="zipcode_3_create"
+                      class="form-control"
+                      formControlName="zipcode_3"
+                    />
+                    <label class="form-label" for="zipcode_3_create">
+                      Postleitzahl
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="city_3_create"
+                      class="form-control"
+                      formControlName="city_3"
+                    />
+                    <label class="form-label" for="city_3_create">
+                      Stadt
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="country_3_create"
+                      class="form-control"
+                      formControlName="country_3"
+                    />
+                    <label class="form-label" for="country_3_create">
+                      Land
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="tel_number_3_create"
+                      class="form-control"
+                      formControlName="tel_number_3"
+                    />
+                    <label class="form-label" for="tel_number_3_create">
+                      Telefonnummer
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="email_address_3_create"
+                      class="form-control"
+                      formControlName="email_address_3"
+                    />
+                    <label class="form-label" for="email_address_3_create">
+                      E-Mail
+                    </label>
+                  </div>
+                </div>
+                <div class="col"></div>
+              </div>
+              <button
+                type="submit"
+                class="btn btn-primary btn-block"
+                [disabled]="!local_configForm.valid"
+              >
+                Speichern
+              </button>
+            </form>
+          </mat-tab>
+          <mat-tab label="Konfiguration bearbeiten">
+            <div class="card-header py-3">
+              <mat-form-field>
+                <mat-label>Konfigurationen</mat-label>
+                <mat-select>
+                  <mat-option
+                    *ngFor="let local of local_config"
+                    [value]="local"
+                    (click)="dropdownValues(local)"
+                  >
+                    {{ local.local_config_name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <form
+              class="overflow-hidden"
+              [formGroup]="local_configForm"
+              (ngSubmit)="onEdit()"
+            >
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="local_config_name"
+                      class="form-control"
+                      formControlName="local_config_name"
+                    />
+                    <label class="form-label" for="local_config_name">
+                      Name der Konfiguration</label
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <h1>Kundenanschrift</h1>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="buyer_party_name_create"
+                      class="form-control"
+                      formControlName="buyer_party_name"
+                    />
+                    <label class="form-label" for="buyer_party_name_create">
+                      Name
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="address_1_create"
+                      class="form-control"
+                      formControlName="address_1"
+                    />
+                    <label class="form-label" for="address_1_create">
+                      Straße
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="number"
+                      id="zipcode_1_create"
+                      class="form-control"
+                      formControlName="zipcode_1"
+                    />
+                    <label class="form-label" for="zipcode_1_create">
+                      Postleitzahl
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="city_1_create"
+                      class="form-control"
+                      formControlName="city_1"
+                    />
+                    <label class="form-label" for="city_1_create">
+                      Stadt
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="country_1_create"
+                      class="form-control"
+                      formControlName="country_1"
+                    />
+                    <label class="form-label" for="country_1_create">
+                      Land
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="tel_number_1_create"
+                      class="form-control"
+                      formControlName="tel_number_1"
+                    />
+                    <label class="form-label" for="tel_number_1_create">
+                      Telefonnummer
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <div class="row mb-4">
+                <h1>Lieferantenanschrift</h1>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="supplier_party_name_create"
+                      class="form-control"
+                      formControlName="supplier_party_name"
+                    />
+                    <label class="form-label" for="supplier_party_name_create">
+                      Name
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="address_2_create"
+                      class="form-control"
+                      formControlName="address_2"
+                    />
+                    <label class="form-label" for="address_create">
+                      Straße
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="number"
+                      id="zipcode_2_create"
+                      class="form-control"
+                      formControlName="zipcode_2"
+                    />
+                    <label class="form-label" for="zipcode_2_create">
+                      Postleitzahl
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="city_2_create"
+                      class="form-control"
+                      formControlName="city_2"
+                    />
+                    <label class="form-label" for="city_2_create">
+                      Stadt
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="country_2_create"
+                      class="form-control"
+                      formControlName="country_2"
+                    />
+                    <label class="form-label" for="country_2_create">
+                      Land
+                    </label>
+                  </div>
+                </div>
+                <div class="col"></div>
+              </div>
+              <hr />
+              <div class="row mb-4">
+                <h1>Rechnungsanschrift</h1>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="invoice_party_name_create"
+                      class="form-control"
+                      formControlName="invoice_party_name"
+                    />
+                    <label class="form-label" for="invoice_party_name_create">
+                      Name
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="address_3_create"
+                      class="form-control"
+                      formControlName="address_3"
+                    />
+                    <label class="form-label" for="address_3_create">
+                      Straße
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="number"
+                      id="zipcode_3_create"
+                      class="form-control"
+                      formControlName="zipcode_3"
+                    />
+                    <label class="form-label" for="zipcode_3_create">
+                      Postleitzahl
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="city_3_create"
+                      class="form-control"
+                      formControlName="city_3"
+                    />
+                    <label class="form-label" for="city_3_create">
+                      Stadt
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="country_3_create"
+                      class="form-control"
+                      formControlName="country_3"
+                    />
+                    <label class="form-label" for="country_3_create">
+                      Land
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="tel_number_3_create"
+                      class="form-control"
+                      formControlName="tel_number_3"
+                    />
+                    <label class="form-label" for="tel_number_3_create">
+                      Telefonnummer
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="email_address_3_create"
+                      class="form-control"
+                      formControlName="email_address_3"
+                    />
+                    <label class="form-label" for="email_address_3_create">
+                      E-Mail
+                    </label>
+                  </div>
+                </div>
+                <div class="col"></div>
+              </div>
+              <button
+                type="submit"
+                class="btn btn-primary btn-block"
+                [disabled]="!local_configForm.valid"
+              >
+                Speichern
+              </button>
+            </form>
+          </mat-tab>
+          <mat-tab label="Konfiguration löschen">
+            <div class="card-header py-3">
+              <mat-form-field>
+                <mat-label>Konfigurationen</mat-label>
+                <mat-select>
+                  <mat-option
+                    *ngFor="let local of local_config"
+                    [value]="local"
+                    (click)="dropdownValues(local)"
+                  >
+                    {{ local.local_config_name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <form
+              class="overflow-hidden"
+              [formGroup]="local_delete_configForm"
+              (ngSubmit)="onDelete()"
+            >
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="local_config_name"
+                      class="form-control"
+                      formControlName="local_config_name"
+                      readonly
+                    />
+                    <label class="form-label" for="local_config_name">
+                      Name der Konfiguration</label
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <h1>Kundenanschrift</h1>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="buyer_party_name_create"
+                      class="form-control"
+                      formControlName="buyer_party_name"
+                      readonly
+                    />
+                    <label class="form-label" for="buyer_party_name_create">
+                      Name
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="address_1_create"
+                      class="form-control"
+                      formControlName="address_1"
+                      readonly
+                    />
+                    <label class="form-label" for="address_1_create">
+                      Straße
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="number"
+                      id="zipcode_1_create"
+                      class="form-control"
+                      formControlName="zipcode_1"
+                      readonly
+                    />
+                    <label class="form-label" for="zipcode_1_create">
+                      Postleitzahl
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="city_1_create"
+                      class="form-control"
+                      formControlName="city_1"
+                      readonly
+                    />
+                    <label class="form-label" for="city_1_create">
+                      Stadt
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="country_1_create"
+                      class="form-control"
+                      formControlName="country_1"
+                      readonly
+                    />
+                    <label class="form-label" for="country_1_create">
+                      Land
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="tel_number_1_create"
+                      class="form-control"
+                      formControlName="tel_number_1"
+                      readonly
+                    />
+                    <label class="form-label" for="tel_number_1_create">
+                      Telefonnummer
+                    </label>
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <div class="col"></div>
+                </div>
+                <div class="col"></div>
+              </div>
+              <hr />
+              <div class="row mb-4">
+                <h1>Lieferantenanschrift</h1>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="supplier_party_name_create"
+                      class="form-control"
+                      formControlName="supplier_party_name"
+                      readonly
+                    />
+                    <label class="form-label" for="supplier_party_name_create">
+                      Name
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="address_create"
+                      class="form-control"
+                      formControlName="address_2"
+                      readonly
+                    />
+                    <label class="form-label" for="address_2_create">
+                      Straße
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="number"
+                      id="zipcode_2_create"
+                      class="form-control"
+                      formControlName="zipcode_2"
+                      readonly
+                    />
+                    <label class="form-label" for="zipcode_2_create">
+                      Postleitzahl
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="city_2_create"
+                      class="form-control"
+                      formControlName="city_2"
+                      readonly
+                    />
+                    <label class="form-label" for="city_2_create">
+                      Stadt
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="country_2_create"
+                      class="form-control"
+                      formControlName="country_2"
+                      readonly
+                    />
+                    <label class="form-label" for="country_2_create">
+                      Land
+                    </label>
+                  </div>
+                </div>
+                <div class="col"></div>
+              </div>
+              <hr />
+              <div class="row mb-4">
+                <h1>Rechnungsanschrift</h1>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="invoice_party_name_create"
+                      class="form-control"
+                      formControlName="invoice_party_name"
+                      readonly
+                    />
+                    <label class="form-label" for="invoice_party_name_create"
+                      >Name
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="address_3_create"
+                      class="form-control"
+                      formControlName="address_3"
+                      readonly
+                    />
+                    <label class="form-label" for="address_3_create">
+                      Straße
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="number"
+                      id="zipcode_3_create"
+                      class="form-control"
+                      formControlName="zipcode_3"
+                      readonly
+                    />
+                    <label class="form-label" for="zipcode_3_create">
+                      Postleitzahl
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="city_3_create"
+                      class="form-control"
+                      formControlName="city_3"
+                      readonly
+                    />
+                    <label class="form-label" for="city_3_create">
+                      Stadt
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="country_3_create"
+                      class="form-control"
+                      formControlName="country_3"
+                      readonly
+                    />
+                    <label class="form-label" for="country_3_create">
+                      Land
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="tel_number_3_create"
+                      class="form-control"
+                      formControlName="tel_number_3"
+                      readonly
+                    />
+                    <label class="form-label" for="tel_number_3_create">
+                      Telefonnummer
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="email_address_3_create"
+                      class="form-control"
+                      formControlName="email_address_3"
+                      readonly
+                    />
+                    <label class="form-label" for="email_address_3_create">
+                      E-Mail
+                    </label>
+                  </div>
+                </div>
+                <div class="col"></div>
+              </div>
+              <button
+                type="submit"
+                class="btn btn-primary btn-block"
+                [disabled]="!local_delete_configForm.valid"
+              >
+                Löschen
+              </button>
+            </form>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>
